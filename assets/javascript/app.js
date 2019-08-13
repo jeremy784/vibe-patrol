@@ -98,3 +98,21 @@
     // once loading is complete.
     window.addEventListener('load', startup, false);
   })();
+
+  function getJokes(){
+    let jokeURL = "https://sv443.net/jokeapi/category/dark"
+
+    $.ajax({
+        url: jokeURL,
+        method: "GET",
+    }).then(function(response){
+        console.log(JSON.stringify(response));
+        let joke = response.joke;
+        let twoPart = 
+        `Setup: ${response.setup} <br>
+        Delivery: ${response.delivery}`;
+    
+        $("#joke").html(joke || twoPart);
+    });
+    console.log(jokeURL);
+  };
