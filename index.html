@@ -1,55 +1,60 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Vibe Patrol</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="assets/css/style.css" type="text/css" media="all">
+        <script src="assets/javascript/app.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Rubik+Mono+One&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <section id = "mainContainer">
-            <div class="jumbotron jumbotron-fluid">
-                    <div class="container">
-                      <h1 class="title">Vibe Patrol</h1>
-                      <p class="lead">Take a picture and we will give you a song or joke to alter your vibe.</p>
-                    </div>
-                  </div>
-            
-                  <div class="media">
-                    <img src="https://via.placeholder.com/200.png/" class="align-self-start mr-3" alt="Image holder">
-                    <div class="media-body">
-                      <h5 class="mt-0">Take photo here!</h5>
-                      <p>Make sure to take a photo to detect your mood!</p>
-                      <a href="music" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Music</a>
-                      <a href="joke" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Joke</a>
-                      <a href="darkJoke" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Dark Jokes</a>
-                    </div>
-                  </div>
-      <div class="contentarea">
-        <h1>
-           Vibe Patrol Photo Capture Test
-        </h1>
-        <p>
-            SHOULD take a picture and save it as a png file....I hope.
-        </p>
-      <div class="camera">
-        <video id="video">Video stream not available.</video>
-        <button id="startbutton">Take photo</button> 
-      </div>
-      <canvas id="canvas">
-      </canvas>
-      <div class="output">
-        <img id="photo" alt="The screen capture will appear in this box."> 
-      </div>
-      
-    </div>
+    <section id="mainContainer">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="title">Vibe Patrol</h1>
+                <p class="lead">Take a picture and we will give you a song or joke to alter your vibe.</p>
+            </div>
+        </div>
+
+        <div class="media">
+            <img src="https://via.placeholder.com/200.png/" class="align-self-start mr-3" alt="Image holder">
+            <div class="media-body">
+                <h5 class="mt-0">Take photo here!</h5>
+                <p>Make sure to take a photo to detect your mood!</p>
+                <a href="music" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Music</a>
+                <a href="joke" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Joke</a>
+                <a href="darkJoke" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Dark
+                    Jokes</a>
+            </div>
+        </div>
+        <div class="contentarea">
+            <h1>
+                Vibe Patrol Photo Capture Test
+            </h1>
+            <p>
+                SHOULD take a picture and save it as a png file....I hope.
+            </p>
+            <div class="camera">
+                <video id="video">Video stream not available.</video>
+                <button id="startbutton">Take photo</button>
+            </div>
+            <canvas id="canvas">
+            </canvas>
+            <div class="output">
+                <img id="photo" alt="The screen capture will appear in this box.">
+            </div>
+
+        </div>
     </section>
-    
+
 </body>
+
 </html>
 
