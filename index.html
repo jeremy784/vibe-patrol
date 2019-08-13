@@ -24,7 +24,18 @@
         </div>
 
         <div class="media">
-            <img src="https://via.placeholder.com/200.png/" class="align-self-start mr-3" alt="Image holder">
+            <div class="contentarea">
+                <div class="camera">
+                    <video id="video">Video stream not available.</video>
+                    <button id="startbutton">Take photo</button>
+                </div>
+                <canvas id="canvas">
+                </canvas>
+                <div class="output">
+                    <img id="photo" alt="The screen capture will appear in this box.">
+                </div>
+    
+            </div>
             <div class="media-body">
                 <h5 class="mt-0">Take photo here!</h5>
                 <p>Make sure to take a photo to detect your mood!</p>
@@ -33,18 +44,6 @@
                 <a href="darkJoke" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Dark
                     Jokes</a>
             </div>
-        </div>
-        <div class="contentarea">
-            <div class="camera">
-                <video id="video">Video stream not available.</video>
-                <button id="startbutton">Take photo</button>
-            </div>
-            <canvas id="canvas">
-            </canvas>
-            <div class="output">
-                <img id="photo" alt="The screen capture will appear in this box.">
-            </div>
-
         </div>
     </section>
 
