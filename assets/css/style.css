@@ -1,3 +1,19 @@
+body{
+  background-image: url("../images/rickSanchez.jpg");
+  background-position: center;
+  color: white;
+}
+#headerr{
+  background: transparent;
+}
+.container{
+  background: transparent;
+}
+
+.title{
+  font-family: 'Rubik Mono One', sans-serif;
+}
+
 #video {
     border: 1px solid black;
     box-shadow: 2px 2px 3px black;
