@@ -3,6 +3,11 @@ body{
   background-position: center;
   color: white;
 }
+ 
+.musicPlayer{
+  padding-left: 200px;
+}
+
 #headerr{
   background: transparent;
 }
