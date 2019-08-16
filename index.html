@@ -1,55 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-
+​
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Vibe Patrol</title>
-
+​
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css" type="text/css" media="all">
     <link href="https://fonts.googleapis.com/css?family=Rubik+Mono+One&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="assets/javascript/app.js"></script>
-
+        <!--link to jQuery & AJAX-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+​
     
 </head>
-
+​
 <body>
-    <section id="mainContainer">
-        <div class="jumbotron jumbotron-fluid" id= "headerr">
-            <div class="container">
-                <h1 class="title">Vibe Patrol</h1>
-                <p class="lead">Take a picture and we will give you a song or joke to alter your vibe.</p>
-            </div>
-        </div>
-
-        <div class="media">
-            <div class="contentarea">
-                <div class="camera">
-                    <video id="video">Video stream not available.</video>
-                    <button id="startbutton">Take photo</button>
+    <section id = "main">
+        <section id="mainContainer">
+                <div class="jumbotron jumbotron-fluid" id= "headerr">
+                    <div class="container" id="appInfo">
+                        <h1 class="title">Vibe Patrol</h1>
+                        <p class="lead">Take a picture and we will give you a song or joke to alter your vibe.</p>
+                    </div>
                 </div>
-                <canvas id="canvas">
-                </canvas>
-                <div class="output">
-                    <img id="selfie" alt="The screen capture will appear in this box.">
+        
+                <div class="media">
+                    <div class="contentarea">
+                        <div class="camera">
+                            <video id="video">Video stream not available.</video>
+                            <button id="startbutton">Take photo</button>
+                        </div>
+                        <canvas id="canvas">
+                        </canvas>
+                        <div class="output">
+                            <img id="selfie" alt="The screen capture will appear in this box.">
+                        </div>
+            
+                    </div>
                 </div>
-    
-            </div>
-            <div class="media-body">
-                <h5 class="mt-0">Take photo here!</h5>
-                <p>Make sure to take a photo to detect your mood!</p>
-                <a href="music" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Music Based On Mood</a><br><br>
-                <a href="joke" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Random Joke!</a>
-                
-            </div>
-        </div>
+                <section>
+                    <h1 id="emotionOutput"></h1>
+                    <button id="retakeBtn">Retake</button>
+            </section>
+            <br>
+            <div class="media-body" id="mediaId">
+                <!-- <h5 class="mt-0">Take photo here!</h5>
+                <p>Make sure to take a photo to detect your mood!</p> -->
+                <a href="music.html" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Music Based On Mood</a>
+                <a href="joke.html" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" id="submitImg">Random Joke!</a>
+            </section>
+​
+            <section class = "rickBackground"> <img src="assets/images/rickSanchez.jpg" alt="rick background"></section>
     </section>
-
+	
+    
+    <script src="assets/javascript/app.js"></script>
+​
 </body>
-
+​
 </html>
-
