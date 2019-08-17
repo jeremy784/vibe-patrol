@@ -332,3 +332,7 @@ onLoad();
     $(".camera").show();
   })
 
+  $(document).on("click", "#newJoke", function(){
+    getJokes();
+  })
+

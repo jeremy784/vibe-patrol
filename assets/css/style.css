@@ -9,6 +9,7 @@
   flex-direction: row;
   justify-content: space-around;
   padding-left: 100px;
+  margin-top: 0px;
   }
 
   #mainContainer-index{
@@ -35,13 +36,18 @@
     margin-top: 15px;
     height: 40px;
     width: 50%;
-
   }
 
   #headerr{
     background: transparent;
     padding-bottom: 0;
+    padding-top: 40px;
   }
+
+  .disHead{
+    padding-top: 0 !important;
+  }
+
   .container{
     background: transparent;
     padding-left: 0;
@@ -53,6 +59,9 @@
 
   #emotionOutput{
     color: #b4eefc;
+    width: 500px;
+    text-align: center;
+    margin-top: 10px;
   }
 
   .memeButton{
@@ -66,14 +75,7 @@
     padding: 0;
   }
 
-  #startOverButton{
-    display: flex;
-    flex-direction: column;
-    background-color: #b4eefc;
-    margin-top: 10px;
-  }
   .media{
-    border: 1px solid green;
     width: 800px;
   }
 
@@ -90,10 +92,10 @@
 
     #retakeTxt{
       text-align: center;
-      border: 1px solid;
       margin: auto;
-      font-size: 30px;
+      font-size: 16px;
       margin-left: 30px;
+      font-style: italic;
     }
     
     #canvas {
@@ -134,7 +136,53 @@
     }
 
     #mediaId{
-      border: 1px solid;
       text-align: center;
       width: 500px;
+
     }
+
+    #toMusic{
+      width: 150px;
+      background-color: #b4eefc;
+      font-weight: bold;
+      padding: 5px;
+      border: none;
+      
+    } 
+
+    #toDis{
+      width: 150px;
+      background-color: #000000;
+      color: #b4eefc;
+      font-weight: bold;
+      padding: 5px;
+      border: none;    
+    }
+
+    #jokeSec{
+      height: auto;
+      width: 600px;
+    }
+
+    #jokeBtns{
+      display: flex;
+      justify-content: space-around;
+      width: 450px;
+      margin: auto;
+      margin-top: 10px;
+    }
+
+    #startOverButton{
+      background-color: #a3d7e4;
+      padding: 5px;
+      font-weight: bold;
+    }  
+
+    #newJoke{
+      background-color: #000000;
+      color: #b4eefc;
+      font-weight: bold;
+      padding: 5px;
+      
+    }
+
