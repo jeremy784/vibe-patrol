@@ -1,14 +1,28 @@
-$(".output").hide();
-$("#mediaId").hide();
-$("#retakeBtn").hide();
+function onLoad(){
+  $(".output").hide();
+  $("#mediaId").hide();
+  $("#retakeBtn").hide();
+
+  $("#conMusic").hide();
+  $("#conDis").hide();
+  $("#conJoke").hide();
+
+  $("#retakeTxt").hide();
+  $("#emotionOutput").html("");
+}
+onLoad();
+
 
 
 (function() {
+  //This if function will only load this fucntion if the body class matches the index.html. 
+  if($("body").is(".pageIndex")){
+
     // The width and height of the captured photo. We will set the
     // width to the value defined here, but the height will be
     // calculated based on the aspect ratio of the input stream.
 
-    var width = 320;    // We will scale the photo width to this
+    var width = 500;    // We will scale the photo width to this
     var height = 0;     // This will be computed based on the input stream
 
     // |streaming| indicates whether or not we're currently streaming
@@ -101,7 +115,9 @@ $("#retakeBtn").hide();
 
     // Set up our event listener to run the startup process
     // once loading is complete.
+
     window.addEventListener('load', startup, false);
+  }
   })();
 
   //API to get a joke
@@ -118,54 +134,16 @@ $("#retakeBtn").hide();
         `Setup: ${response.setup} <br>
         Delivery: ${response.delivery}`;
 
-        $("#joke").html(joke || twoPart);
+        $("#jokeH1").html(joke || twoPart);
     });
     console.log(jokeURL);
 
   };
 
-  // API that pulls music
-
-function musicURL(){
-  letmusicURL = "SpotifyPublicAPIdimasV1.p.rapidapi.com"
-
-  $.ajax({
-  url: musicURL,
-  method: "GET",
-  }).then(function(response){
-  console.log(JSON.stringify(response));
-  let music = response.music;
-
-  //We need to create a 'div' with an ID of 'music'
-
-  $("#music").html(music);
-  });
-  console.log(musicURL);
-  }
-
-  // function readImage() {
-  
-  //   let filesSelected = document.getElementById("selfie").files;
-  //   if (filesSelected.length > 0) {
-  //     let fileToLoad = filesSelected[0];
-  
-  //     let fileReader = new FileReader();
-  
-  //     fileReader.onload = function(fileLoadedEvent) {
-  //       srcData = fileLoadedEvent.target.result; // <--- data: base64
-  
-  //       let newImage = document.createElement('img');
-  //       newImage.src = srcData;
-  
-  //       document.getElementById("imgDisplay").innerHTML = newImage.outerHTML;
-  //     }
-  //     fileReader.readAsDataURL(fileToLoad);
-  //   }
-  // }
-
 
   //Declared selEMotion to make global
   let selEmotion;
+  let emoVid;
 
   function faceEmotion() {
     let selfieImg = $("#selfie").attr("src");
@@ -208,90 +186,149 @@ function musicURL(){
        console.log("sad life, cheer up");
        console.log("Sadness: " + sadness);
        selEmotion = "sad";
-       $("#emotionOutput").html(`You look ${selEmotion}, select either music or joke for good vibes.`);
-       $("#retakeBtn").show();        $("#mediaId").show();
+       $("#emotionOutput").html(`You look ${selEmotion}, select either Music to continue with your vibe, or Joke to try to lighten up the mood.`);
+       $("#retakeBtn").show();        
+       $("#mediaId").show();
 
       } else if (happiness > neutral && happiness > sadness) {
         console.log("Real happy, calm down");
         console.log("Happiness: " + happiness);
         selEmotion = "happy";
-        $("#emotionOutput").html(`You look ${selEmotion}, select either music or joke for good vibes.`);
+        $("#emotionOutput").html(`You look ${selEmotion}, select either Music to continue with your vibe, or Joke to try to lighten up the mood.`);
         $("#retakeBtn").show();
         $("#mediaId").show();
+        $("#emotionVal").html(selEmotion);
 
       } else if (anger > happiness && anger > sadness) {
         console.log("You MAD mad");
         console.log("Anger: " + anger);
         selEmotion = "angry";
-        $("#emotionOutput").html(`You look ${selEmotion}, select either music or joke for good vibes.`);
+        $("#emotionOutput").html(`You look ${selEmotion}, select either Music to continue with your vibe, or Joke to try to lighten up the mood.`);
+        $("#retakeBtn").show();
+        $("#mediaId").show();
+
+      } else if (surprise > happiness && surprise > sadness) {
+        console.log("You look shocked!");
+        console.log("Surprise: " + surprise);
+        selEmotion = "surprised";
+        $("#emotionOutput").html(`You look ${selEmotion}, select either Music to continue with your vibe, or Joke to try to lighten up the mood.`);
         $("#retakeBtn").show();
         $("#mediaId").show();
 
       }else {
-        selEmotion = "Couldn't detect emotion. Please retake image."
+        selEmotion = "Couldn't detect emotion. Please retake photo."
         $("#emotionOutput").html(selEmotion);
         $("#retakeBtn").show();
 
       }
-    
-
         //console.log the value of selEmotion
         //can only be console.logged in ajax for face++, otherwise, undefined
         console.log(selEmotion);
 
+        //The following IF statements basically is the app fucntioning. (Grabbing emotion and either showing a video corresponding to emotion, or give user a joke)
+        if(selEmotion === "happy"){
+          emoVid = "https://www.youtube.com/embed/dTYOkcRH220"
 
-        //Linked up SpotifyAPI, now need to learn how to searhc for a playlist with selEmotion in the search bar
-        let spotURL = "https://api.spotify.com/v1/browse/new-releases"// + selEmotion;
-        //need to save accessToken with all of Jon's keys
-        let accessToken = "BQBYGRCKaJZ0fCQYEeCn7N3qBetAJcvwIaRVWHfBtHYy6op91W31avbT_N6Oo3oV0RVci4lmMyyq2GpHonP7-lV07hnRzKJMuUJcOXkMUDSNS2iyg3Rr_8u1S_E_Ip8IAduKuNMxlL2G";
+          $("#toMusic").on("click", function(){
+            $("#conIndex").hide();
+            $("#conMusic").show();
+            $("#musicVid").attr("src", emoVid);
+          })
 
-        $.ajax({
-          url: spotURL,
-          type: "GET",
-          headers: {
-            'Authorization' : 'Bearer ' + accessToken
-          },
-          success: function(data){
-            console.log(data);
-          }
+          $("#toDis").on("click",function(){
+            $("#conIndex").hide();
+            $("#conDis").show();
+            $("#continueButton").on("click", function(){
+              $("#conDis").hide();
+              $("#conJoke").show();
+              $("#jokeH1").html("");
+              getJokes();
+            })
+          })
+          
+        } else if(selEmotion === "sad"){
+          emoVid = "https://www.youtube.com/embed/8ofCZObsnOo"
 
+          $("#toMusic").on("click", function(){
+            $("#conIndex").hide();
+            $("#conMusic").show();
+            $("#musicVid").attr("src", emoVid);
+          })
 
-        })
+          $("#toDis").on("click",function(){
+            $("#conIndex").hide();
+            $("#conDis").show();
+            $("#continueButton").on("click", function(){
+              $("#conDis").hide();
+              $("#conJoke").show();
+              $("#jokeH1").html("");
+              getJokes();
+            })
+          })
+          
+        } else if(selEmotion === "angry"){
+          emoVid = "https://www.youtube.com/embed/0KSOMA3QBU0"
 
+          $("#toMusic").on("click", function(){
+            $("#conIndex").hide();
+            $("#conMusic").show();
+            $("#musicVid").attr("src", emoVid);
+          })
+
+          $("#toDis").on("click",function(){
+            $("#conIndex").hide();
+            $("#conDis").show();
+            $("#continueButton").on("click", function(){
+              $("#conDis").hide();
+              $("#conJoke").show();
+              $("#jokeH1").html("");
+              getJokes();
+            })
+          })
+          
+        } else if(selEmotion === "surprised"){
+          emoVid = "https://www.youtube.com/embed/9SRxBTtspYM"
+
+          $("#toMusic").on("click", function(){
+            $("#conIndex").hide();
+            $("#conMusic").show();
+            $("#musicVid").attr("src", emoVid);
+          })
+
+          $("#toDis").on("click",function(){
+            $("#conIndex").hide();
+            $("#conDis").show();
+            $("#continueButton").on("click", function(){
+              $("#conDis").hide();
+              $("#conJoke").show();
+              $("#jokeH1").html("");
+              getJokes();
+            })
+          })
+          
+        }
 
     });
-  
   }
-
-  //This was used to gain the proper authorization needed to use SpofityAPI services. Successful.
-  function getAuth(){
-    $.ajax({
-      url: "https://accounts.spotify.com/authorize?client_id=75cc2213842443acb57ea69bf27edbc8&redirect_uri=https://jeremy784.github.io/vibe-patrol/&response_type=token&state=1442",
-      method: "GET"
-    })
-  }
-
-  getAuth();
-
   
   $(document).on("click", "#startbutton", function(){
     faceEmotion();
     $(".camera").hide();
     $(".output").show();
-    $("#retakeButton").show();
-
-
+    $("#retakeTxt").show();
   });
 
-  $(document).on("click", "#retakeBtn", function(){
-
+  $(document).on("click", "#selfie", function(){
     $(".output").hide();
     $(".camera").show();
     $("#emotionOutput").html("");
-    $("#retakeBtn").hide();
+    $("#retakeTxt").hide();
     $("#mediaId").hide();
-
-
   })
 
-//https://jeremy784.github.io/vibe-patrol/#access_token=BQBYGRCKaJZ0fCQYEeCn7N3qBetAJcvwIaRVWHfBtHYy6op91W31avbT_N6Oo3oV0RVci4lmMyyq2GpHonP7-lV07hnRzKJMuUJcOXkMUDSNS2iyg3Rr_8u1S_E_Ip8IAduKuNMxlL2G&token_type=Bearer&expires_in=3600&state=1442
+  $(document).on("click", "#startOverButton", function(){
+    onLoad();
+    $("#conIndex").show();
+    $(".camera").show();
+  })
+
