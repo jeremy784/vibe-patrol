@@ -1,65 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
-​
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  ​
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Vibe Patrol</title>
-​
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/style.css" type="text/css" media="all">
-    <link href="https://fonts.googleapis.com/css?family=Rubik+Mono+One&display=swap" rel="stylesheet">
-      
-​
-    
-</head>
-​
-<body>
-    <section id = "main">
-        <section id="mainContainer">
-                <div class="jumbotron jumbotron-fluid" id= "headerr">
-                    <div class="container" id="appInfo">
-                        <h1 class="title">Vibe Patrol</h1>
-                        <p class="lead">Take a picture and we will give you a song or joke to alter your vibe.</p>
-                    </div>
-                </div>
-        
-                <div class="media">
-                    <div class="contentarea">
-                        <div class="camera">
-                            <video id="video">Video stream not available.</video>
-                            <button id="startbutton">Take photo</button>
-                        </div>
-                        <canvas id="canvas">
-                        </canvas>
-                        <div class="output">
-                            <img id="selfie" alt="The screen capture will appear in this box.">
-                        </div>
-            
-                    </div>
-                </div>
-                <section>
-                    <h1 id="emotionOutput"></h1>
-                    <button id="retakeBtn">Retake</button>
-            </section>
-            <br>
-            <div class="media-body" id="mediaId">
-                <!-- <h5 class="mt-0">Take photo here!</h5>
-                <p>Make sure to take a photo to detect your mood!</p> -->
-                <a href="music.html" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Music Based On Mood</a>
-                <a href="joke.html" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" id="submitImg">Random Joke!</a>
-            </section>
-​
-            <section class = "rickBackground"> <img src="assets/images/rickSanchez.jpg" alt="rick background"></section>
+    ​
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css" media="all"/>
+    <link href="https://fonts.googleapis.com/css?family=Rubik+Mono+One&display=swap" rel="stylesheet"/>
+
+    <!--link to jQuery & AJAX-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    ​
+  </head>
+  ​
+  <body class="pageIndex">
+    <section class="main" id="conIndex">
+      <section id="mainContainer-index">
+        <div class="jumbotron jumbotron-fluid" id="headerr">
+          <div class="container" id="appInfo">
+            <h1 class="title">Vibe Patrol</h1>
+            <p class="lead">
+              Take a picture and we will give you a song or joke to alter your
+              vibe.
+            </p>
+          </div>
+        </div>
+        <div class="media">
+          <div class="contentarea">
+            <div class="camera">
+              <video id="video">Video stream not available.</video>
+              <button id="startbutton">Take photo</button>
+            </div>
+            <canvas id="canvas"></canvas>
+            <div class="output">
+              <img
+                id="selfie"
+                alt="The screen capture will appear in this box."
+              />
+            </div>
+            <p id="retakeTxt">Retake photo by clicking on image.</p>
+
+          </div>
+        </div>
+        <section>
+          <h1 id="emotionOutput"></h1>
+        </section>
+        <br />
+        <div class="media-body" id="mediaId">
+          <button id="toMusic">Music</button>
+          <button id="toDis">Joke</button>
+        </div>
+      </section>
+      ​
+      <section class="rickBackground">
+        <img src="assets/images/rickSanchez.jpg" alt="rick background" />
+      </section>
     </section>
-	
-    
+
+    <section class="main" id="conMusic">
+      <section id="mainContainer-music">
+        <div class="jumbotron jumbotron-fluid" id="headerr">
+          <div class="container">
+            <h1 class="title">Vibe Patrol</h1>
+            <p class="lead">Enjoy the music vibe.</p>
+          </div>
+        </div>
+
+        <div class="musicPlayer">
+          <iframe id="musicVid" width="560" height="315" src=""> </iframe>
+          <button id="startOverButton">Start Over</button>
+        </div>
+      </section>
+      <section class="rickBackground">
+        <img src="assets/images/rickSanchez.jpg" alt="rick background" />
+      </section>
+    </section>
+
+    <section class="main" id="conDis">
+      <div class="jumbotron jumbotron-fluid" id="headerr">
+        <div class="container">
+          <h1 class="title">Vibe Patrol</h1>
+          <p class="lead">Disclaimer</p>
+          <br />
+          <p>
+            Although not an adult site, Vibe Patrol recommends that you be over
+            the age of 18 years to view our jokes. Parental discretion is
+            advised.
+          </p>
+          <p>
+            The jokes on this site are meant to be entertaining and funny. This
+            being said it is likely that people of different races, religions,
+            sexual preferences, hair colours, heights, shoes sizes, amongst
+            others will be offended. This is not our intent.
+            <b>If you are easily offended please leave section NOW</b>.
+          </p>
+          <p>
+            The material provided herein is uncensored and is protected by free
+            speech and does not represent the views of the website creators,
+            group members, or any other affiliates of this site. By clicking
+            'Contine to Joke' below, you agree to release the website creators,
+            group members and any other affiliates of this site from any and all
+            liability which might arise.
+          </p>
+          <p>
+            It is impossible to provide a joke site that would not offend
+            someone sometime. If there are jokes that you find offensive, please
+            ignore them and move on. We apologize in advance.
+          </p>
+          <br />
+          <br />
+          <section id="memeButton">
+            <img src="assets/images/offensive.png" />
+            <button id="continueButton">Continue</button>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="main" id="conJoke">
+      <section id="mainContainer-joke2">
+        <div class="jumbotron jumbotron-fluid" id="headerr">
+          <div class="container">
+            <h1 class="title">Vibe Patrol</h1>
+            <p class="lead">Random joke to turn that....Vibe upside down? =)</p>
+            <br />
+          </div>
+        </div>
+
+        <h1 id="jokeH1"></h1>
+        <button id="startOverButton">Start Over</button>
+      </section>
+      <section class="rickBackground">
+        <img src="assets/images/rickSanchez.jpg" alt="rick background" />
+      </section>
+    </section>
+
     <script src="assets/javascript/app.js"></script>
-      <!--link to jQuery & AJAX-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-​
-</body>
-​
+  </body>
+  ​
 </html>
