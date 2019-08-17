@@ -159,6 +159,14 @@
       border: none;    
     }
 
+    #goBack{
+      margin: auto;
+      margin-top: 15px;
+      height: 40px;
+      width: 25%;    
+    }
+
+
     #jokeSec{
       height: auto;
       width: 600px;
