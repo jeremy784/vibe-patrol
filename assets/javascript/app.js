@@ -57,9 +57,6 @@ onLoad();
         if (!streaming) {
           height = video.videoHeight / (video.videoWidth/width);
 
-          // Firefox currently has a bug where the height can't be read from
-          // the video, so we will make assumptions if this happens.
-
           if (isNaN(height)) {
             height = width / (4/3);
           }
@@ -95,8 +92,7 @@ onLoad();
     // Capture a photo by fetching the current contents of the video
     // and drawing it into a canvas, then converting that to a PNG
     // format data URL. By drawing it on an offscreen canvas and then
-    // drawing that to the screen, we can change its size and/or apply
-    // other changes before drawing it.
+    // drawing that to the screen, we can alter it before drawing it.
 
     function takepicture() {
       var context = canvas.getContext('2d');
