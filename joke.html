@@ -11,7 +11,7 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css" type="text/css" media="all">
     <link href="https://fonts.googleapis.com/css?family=Rubik+Mono+One&display=swap" rel="stylesheet">
-    <script src="assets/javascript/app.js"></script>
+    
     
 </head>
 
@@ -28,14 +28,21 @@
                 <p>It is impossible to provide a joke site that would not offend someone sometime. If there are jokes that you find offensive, please ignore them and move on. We apologize in advance.</p>
                 <br>
                 <br>
-                <img src="assets/images/offensive.png">
+                <section id="memeButton">
+                    <img src="assets/images/offensive.png">
+                    <a href="joke2.html" id = "continueButton" class="btn btn-secondary btn-lg disabled" tabindex="-1" role="button" aria-disabled="true">Click to Continue</a>
+                </section>
+               
             </div>
         </div>
-
+       
         <div class="joke"></div>
 
         </div>
     </section>
+
+    <script src="assets/javascript/app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 </body>
 

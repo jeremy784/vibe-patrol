@@ -19,6 +19,22 @@
   .title{
     font-family: 'Rubik Mono One', sans-serif;
   }
+
+  .memeButton{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .musicPlayer{
+    padding-left: 20px;
+  }
+
+  #startOverButton{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+  }
   
   #video {
       border: 1px solid black;
