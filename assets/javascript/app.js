@@ -336,3 +336,9 @@ onLoad();
     getJokes();
   })
 
+  $(document).on("click", "#goBack", function(){
+    $("conDis").hide();
+    onLoad();
+    $("#conIndex").show();
+    $(".camera").show();
+  })
